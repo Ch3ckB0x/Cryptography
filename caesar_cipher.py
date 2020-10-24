@@ -1,18 +1,17 @@
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-shift = 13
 
-def caesar_cipher(text):
+def caesar_cipher_encryption(encryption_text):
     caesar_cipher_list = []
-    for i in text:
+    for i in encryption_text:
         if i in alphabet:
             index = alphabet.index(i)
-            index = int((index + 13) % 26)
+            index = int((index + shift) % 26)
             i = alphabet[index]
             caesar_cipher_list += i
         elif i in ALPHABET:
             index = ALPHABET.index(i)
-            index = int((index + 13) % 25)
+            index = int((index + shift) % 25)
             i = ALPHABET[index]
             caesar_cipher_list += i
         else:
@@ -22,7 +21,8 @@ def caesar_cipher(text):
     return caesar_cipher_text
 
 
-text = 'abcdefghijklmnopqrstuvwxyz'
+encryption_text = input("Enter text for encryption: ")
+shift = int(input("Enter shift(0-25): "))
 
-decrypter = caesar_cipher(text)
-print(decrypter)
+encrypter = caesar_cipher_encryption(encryption_text)
+print(encrypter)
