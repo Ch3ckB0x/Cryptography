@@ -8,15 +8,13 @@ def caesar_cipher(encryption_text, shift):
             index = alphabet.index(i)
             index = int((index + shift) % 26)
             i = alphabet[index]
-            caesar_cipher_list += i
         elif i in ALPHABET:
             index = ALPHABET.index(i)
             index = int((index + shift) % 26)
             i = ALPHABET[index]
-            caesar_cipher_list += i
         else:
             i = i
-            caesar_cipher_list += i
+        caesar_cipher_list += i
     caesar_cipher_text = "".join(caesar_cipher_list)
     return caesar_cipher_text
 
